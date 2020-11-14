@@ -1,0 +1,26 @@
+
+plugins {
+    id 'java'
+}
+
+apply plugin: 'application'
+
+mainClassName = 'MainClass'
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+      compile group: 'org.json', name: 'json', version: '20200518'
+}
+
+run {
+    standardInput =
+            System.in
+}
