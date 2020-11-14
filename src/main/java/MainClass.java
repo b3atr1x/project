@@ -84,7 +84,7 @@ public class MainClass {
                     System.out.println("Type your current password. Type \"exit\" if you want to go back.");
                     String typedPassword = scanner.next();
                     if (person.getPassword().equals(typedPassword)) {
-                        System.out.println("Type new password: ");
+                        System.out.println("Type your new password: ");
                         typedPassword = scanner.next();
                         person.setPassword(typedPassword);
                         System.out.println("Password successfully changed.");
