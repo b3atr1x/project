@@ -12,11 +12,6 @@ public class Person {
         this.nickname = nickname;
         this.password = password;
     }
-
-    void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
     void setPassword(String password) {
         this.password = password;
     }
@@ -43,7 +38,6 @@ public class Person {
     List<Note> getNotes(){
         return notes;
     }
-
 
     void setNote(int chosenNote, String newText) {
         notes.get(chosenNote).setText(newText);

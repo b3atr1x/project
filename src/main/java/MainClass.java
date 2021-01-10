@@ -1,32 +1,30 @@
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-
-import org.json.JSONObject;
-import org.json.JSONTokener;
-
 public class MainClass {
-
     public static final Scanner scanner = new Scanner(System.in);
-
     static IAuthService authService = new FileAuthService();
+
+    private static final String ADD_NEW_NOTE = "1";
+    private static final String CHANGE_NOTE = "2";
+    private static final String SHOW_ALL_NOTES = "3";
+    private static final String DELETE_NOTES = "4";
+    private static final String CHANGE_PASSWORD = "5";
+    private static final String DELETE_ACCOUNT = "6";
+    private static final String LOG_OUT = "7";
 
     static void logIn(Person person) throws FileNotFoundException {
         while (true) {
             System.out.println("Choose one option: ");
-            System.out.println("1 - Add new note 2 - Change note 3 - Show all notes 4 - Delete notes 5 - Log out 6 - Change password 7 - Delete account ");
+            System.out.println("1 - Add new note\n2 - Change note\n3 - Show all notes\n4 - Delete notes\n5 - Change password\n6 - Delete account\n7 - Log out\n");
             String chosenOption = scanner.next();
-            if (chosenOption.equals("1")) {
+            if (chosenOption.equals(ADD_NEW_NOTE)) {
                 System.out.println("Create new note: ");
                 scanner.nextLine();
                 String typedNote = scanner.nextLine();
                 Note note = new Note(typedNote);
                 person.addNote(note);
-            } else if (chosenOption.equals("2")) {
+            } else if (chosenOption.equals(CHANGE_NOTE)) {
                 while (true) {
                     if (person.getNotesSize() == 0) {
                         System.out.println("You don't have any notes");
@@ -49,13 +47,13 @@ public class MainClass {
                         }
                     }
                 }
-            } else if (chosenOption.equals("3")) {
+            } else if (chosenOption.equals(SHOW_ALL_NOTES)) {
                 if (person.getNotesSize() == 0) {
                     System.out.println("You don't have any notes");
                     continue;
                 }
                 person.printNotes();
-            } else if (chosenOption.equals("4")) {
+            } else if (chosenOption.equals(DELETE_NOTES)) {
                 while (true) {
                     if (person.getNotesSize() == 0) {
                         System.out.println("You don't have any notes.");
@@ -76,10 +74,10 @@ public class MainClass {
                         }
                     }
                 }
-            } else if (chosenOption.equals("5")) {
+            } else if (chosenOption.equals(LOG_OUT)) {
                 authService.logout();
                 break;
-            } else if (chosenOption.equals("6")) {
+            } else if (chosenOption.equals(CHANGE_PASSWORD)) {
                 while (true) {
                     System.out.println("Type your current password. Type \"exit\" if you want to go back.");
                     String typedPassword = scanner.next();
@@ -97,7 +95,7 @@ public class MainClass {
                         }
                     }
                 }
-            } else if (chosenOption.equals("7")) {
+            } else if (chosenOption.equals(DELETE_ACCOUNT)) {
                 while (true) {
                     System.out.println("Type your password to delete account. Type \"exit\" if you want to go back.");
                     String typedAnswer = scanner.next();
@@ -118,7 +116,7 @@ public class MainClass {
     public static void main(String[] args) throws FileNotFoundException {
         while (true) {
             System.out.println("Choose one option: ");
-            System.out.println("1 - REGISTER 2 - LOGIN 3 - EXIT");
+            System.out.println("1 - REGISTER\n2 - LOGIN\n3 - EXIT\n");
             String chosenOption = scanner.next();
             if (chosenOption.equals("1")) {
                 System.out.println("Type your nickname: ");

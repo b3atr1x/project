@@ -7,8 +7,5 @@ public interface IAuthService {
 
     void logout() throws FileNotFoundException;
 
-
     Person getPerson();
-
-
 }

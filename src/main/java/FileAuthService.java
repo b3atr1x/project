@@ -51,7 +51,6 @@ public class FileAuthService implements IAuthService {
         return true;
     }
 
-
     @Override
     public void logout() throws FileNotFoundException {
         JSONArray jsonArray = new JSONArray();
@@ -64,7 +63,7 @@ public class FileAuthService implements IAuthService {
                 JSONObject note = new JSONObject();
                 note.put("note", person.getNotes().get(i).getText());
                 jsonArray.put(note);
-                System.out.println("sdknfdskjn");
+                System.out.println("TO TYLKO TEST");
             }
             user.put("notes", jsonArray);
             PrintWriter printwriter = new PrintWriter(file);
@@ -73,6 +72,4 @@ public class FileAuthService implements IAuthService {
             person = null;
         }
     }
-
-
 }

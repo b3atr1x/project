@@ -1,17 +1,8 @@
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AuthService implements IAuthService {
     private List<Person> people = new ArrayList<>();
-
-    public List<Person> getList() {
-        return people;
-    }
-
-    public int getListSize() {
-        return people.size();
-    }
 
     @Override
     public void login(String nickname, String password) {
@@ -42,5 +33,4 @@ public class AuthService implements IAuthService {
     public Person getPerson() {
         return null;
     }
-
 }
